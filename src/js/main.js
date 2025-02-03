@@ -10,6 +10,8 @@ window.onload = init;
 function init() {
 
     getCourses();
+    
+    document.querySelector("#search").addEventListener("input", findCourse);
 }
 
 async function getCourses() {
@@ -33,7 +35,7 @@ async function getCourses() {
 
 function printCourses(data) {
     let coursesTableEl = document.querySelector("#courses-table");
-    
+    coursesTableEl.innerHTML = "";
     // Loopa igenom data
     data.forEach(course => {
         // Element i tabellen
@@ -62,3 +64,12 @@ function printCourses(data) {
     });
 }
 
+function findCourse() {
+    let searchPhrase = document.querySelector("#search").value;
+
+    let filteredData = courses.filter(course => 
+        course.code.toLowerCase().includes(searchPhrase.toLowerCase()) ||
+        course.coursename.toLowerCase().includes(searchPhrase.toLowerCase())
+    );
+    printCourses(filteredData);
+}
