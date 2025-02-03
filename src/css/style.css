@@ -1,0 +1,14 @@
+main {
+    max-width: 1200px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 0 2%;
+}
+
+#courses-table {
+    width: 100%;
+}
+
+th {
+    text-decoration: underline;
+}
