@@ -36,6 +36,28 @@ async function getCourses() {
 function printCourses(data) {
     let coursesTableEl = document.querySelector("#courses-table");
     coursesTableEl.innerHTML = "";
+
+    // Element för tabell-rubrik
+    let headerRowEl = document.createElement("tr");
+    let codeHeaderEl = document.createElement("th");
+    let nameHeaderEl = document.createElement("th");
+    let progressHeaderEl = document.createElement("th");
+
+    // Element för tabellrubrik-texter
+    let codeText = document.createTextNode("Kurskod");
+    let nameText = document.createTextNode("Namn");
+    let progressText = document.createTextNode("Progression");
+
+    codeHeaderEl.appendChild(codeText);
+    nameHeaderEl.appendChild(nameText);
+    progressHeaderEl.appendChild(progressText);
+
+    headerRowEl.appendChild(codeHeaderEl);
+    headerRowEl.appendChild(nameHeaderEl);
+    headerRowEl.appendChild(progressHeaderEl);
+
+    coursesTableEl.appendChild(headerRowEl);
+
     // Loopa igenom data
     data.forEach(course => {
         // Element i tabellen
