@@ -9,6 +9,19 @@ main {
     width: 100%;
 }
 
+#search {
+    width: 100%;
+    margin-bottom: 2%;
+}
 th {
     text-decoration: underline;
+    cursor: pointer;
+    text-align: start;
+}
+
+td {
+    padding: 1% 0;
+}
+tr:nth-child(even) {
+    background-color: #D6EEEE;
 }
