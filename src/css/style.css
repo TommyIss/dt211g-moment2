@@ -20,7 +20,7 @@ th {
 }
 
 td {
-    padding: 1% 0;
+    padding: 1%;
 }
 tr:nth-child(even) {
     background-color: #D6EEEE;
