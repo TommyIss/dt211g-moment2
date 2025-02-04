@@ -24,7 +24,6 @@ async function getCourses() {
         }
         courses = await response.json();
         printCourses(courses);
-        // console.log(courses);
     }
     catch(error) {
         console.error("Error: ", error)
@@ -35,6 +34,8 @@ async function getCourses() {
 
 function printCourses(data) {
     let coursesTableEl = document.querySelector("#courses-table");
+    
+    // Rensa tabellen
     coursesTableEl.innerHTML = "";
 
     // Element för tabell-rubrik
@@ -110,6 +111,7 @@ function findCourse() {
     printCourses(filteredData);
 }
 
+// Funktion för sortera via kursnamn
 function sortByName() {
     let coursesTableEl = document.querySelector("#courses-table");
     let nameHeaderEl = document.querySelector("#name");
@@ -118,6 +120,7 @@ function sortByName() {
 
     if(order == 'desc') {
         
+        // Sortera arrayen i stigande-ordning
         courses.sort((a, b) => (a.coursename > b.coursename) ? 1 : -1);
         coursesTableEl.innerHTML = "";
 
@@ -156,6 +159,7 @@ function sortByName() {
         coursesTableEl.appendChild(headerRowEl);
     } else {
         
+        // Sortera arrayen i fallande-ordning
         courses.sort((a, b) => (a.coursename < b.coursename) ? 1 : -1);
         
         coursesTableEl.innerHTML = "";
@@ -223,6 +227,7 @@ function sortByName() {
     
 }
 
+// Funktion för sortera via kurskod
 function sortByCode() {
     let coursesTableEl = document.querySelector("#courses-table");
     let codeHeaderEl = document.querySelector("#code");
@@ -230,7 +235,7 @@ function sortByCode() {
     let order = codeHeaderEl.getAttribute('data-order');
 
     if(order == 'desc') {
-        
+        // Sortera arrayen i stigande-ordning
         courses.sort((a, b) => (a.code > b.code) ? 1 : -1);
         coursesTableEl.innerHTML = "";
 
@@ -268,7 +273,7 @@ function sortByCode() {
 
         coursesTableEl.appendChild(headerRowEl);
     } else {
-        
+        // Sortera arrayen i fallande-ordning
         courses.sort((a, b) => (a.code < b.code) ? 1 : -1);
         
         coursesTableEl.innerHTML = "";
@@ -335,6 +340,7 @@ function sortByCode() {
     });
 }
 
+// Funktion för sortera via kursprogression
 function sortByProgress() {
     let coursesTableEl = document.querySelector("#courses-table");
     let progressHeaderEl = document.querySelector("#progress");
@@ -342,8 +348,9 @@ function sortByProgress() {
     let order = progressHeaderEl.getAttribute('data-order');
 
     if(order == 'desc') {
-        
+        // Sortera arrayen i stigande-ordning
         courses.sort((a, b) => (a.progression > b.progression) ? 1 : -1);
+        
         coursesTableEl.innerHTML = "";
 
         // Element för tabell-rubrik
@@ -380,7 +387,7 @@ function sortByProgress() {
 
         coursesTableEl.appendChild(headerRowEl);
     } else {
-        
+        // Sortera arrayen i fallande-ordning
         courses.sort((a, b) => (a.progression < b.progression) ? 1 : -1);
         
         coursesTableEl.innerHTML = "";
